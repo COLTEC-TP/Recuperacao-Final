@@ -9,28 +9,18 @@
     <EditText
         android:id="@+id/login"
         android:layout_width="300dp"
-        android:layout_height="wrap_content"
+        android:layout_height="44dp"
         android:ems="10"
         android:inputType="textEmailAddress"
+        tools:ignore="MissingConstraints"
         tools:layout_editor_absoluteX="0dp"
-        tools:layout_editor_absoluteY="0dp"
-        tools:ignore="MissingConstraints" />
-
-    <EditText
-        android:id="@+id/password"
-        android:layout_width="300dp"
-        android:layout_height="wrap_content"
-        android:ems="10"
-        android:inputType="textPassword"
-        tools:layout_editor_absoluteX="0dp"
-        tools:layout_editor_absoluteY="46dp"
-        tools:ignore="MissingConstraints" />
+        tools:layout_editor_absoluteY="0dp" />
 
     <Button
         android:id="@+id/button"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Login"
+        android:text="search"
         tools:layout_editor_absoluteX="0dp"
         tools:layout_editor_absoluteY="92dp"
         tools:ignore="MissingConstraints" />

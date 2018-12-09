@@ -15,7 +15,7 @@ public interface GitHubService {
     Call<User> getUser(@Path("username") String username);
 
     @GET("group/{id}/users")
-    Call<List<User>> groupList(@Path("id") int groupId, @Query("sort") String sort);
+    Call<List<User>> groupList(@Path("id") int groupId);
 
     @POST("users/new")
     Call<User> createUser(@Body User user);
