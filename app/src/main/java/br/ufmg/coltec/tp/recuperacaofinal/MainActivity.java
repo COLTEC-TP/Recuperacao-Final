@@ -14,7 +14,7 @@ public class MainActivity extends Activity {
   @Override
   protected void onCreate(Bundle savedInstanceState) {
     super.onCreate(savedInstanceState);
-    setContentView(R.layout.activity_login);
+    setContentView(R.layout.activity_main);
 
     EditText loginText = findViewById(R.id.login);
 
@@ -22,22 +22,23 @@ public class MainActivity extends Activity {
   }
 
     private void makeCall(final TextView mPriceTextView, final String currencyCode) {
-        GitHubService service = new RetrofitConfig(MainActivity.this).
-                getInfoBlockchain(MainActivity.this);
-        Call<User> userCall = service.getUser();
+        GitHubService service = new RetrofitConfig().getGitHubService();
+        Call<User> userCall = service.getUser("username");
+
+// fazendo a requisição de forma assíncrona
         userCall.enqueue(new Callback<User>() {
             @Override
             public void onResponse(Call<User> call, Response<User> response) {
                 User user = response.body();
-                StringBuilder login = new StringBuilder();
-                login.append(String.valueOf(User.getLogin().getSymbol()))
-                        .append(" ")
-                        .append(String.valueOf(User.getLogin().getLast()));
 
+                // Manipulação do endereço recebido
             }
+
             @Override
             public void onFailure(Call<User> call, Throwable t) {
+                // Tratamento de eventual erro de requisição
             }
         });
+
     }
 }

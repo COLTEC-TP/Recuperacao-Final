@@ -3,10 +3,7 @@ package br.ufmg.coltec.tp.recuperacaofinal;
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
-
-
 public class User {
-
 
     @SerializedName("login")
     @Expose
@@ -102,7 +99,7 @@ public class User {
     @Expose
     private String updatedAt;
 
-    public static String getLogin() {
+    public String getLogin() {
         return login;
     }
 

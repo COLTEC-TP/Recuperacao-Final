@@ -11,13 +11,10 @@ import retrofit2.http.Query;
 
 public interface GitHubService {
 
-    @GET("users/{username}")
-    Call<User> getUser(@Path("username") String username);
+    @GET("users/{username}/json")
+    public Call<User> getUser(@Path("username") String username);
 
-    @GET("group/{id}/users")
-    Call<List<User>> groupList(@Path("id") int groupId);
-
-    @POST("users/new")
-    Call<User> createUser(@Body User user);
+    @GET("group/{id}/json")
+    public  Call<List<User>> groupList(@Path("id") int groupId);
 
 }
