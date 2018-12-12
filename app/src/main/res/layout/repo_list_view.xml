@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".LoginActivity">
+
+    <TableLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:stretchColumns="1">
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" >
+            <TextView
+                android:text="Nome: "
+                android:textStyle="bold"
+                android:padding="3dip" />
+            <TextView
+                android:id="@+id/nome"
+                android:gravity="left"
+                android:padding="3dip" />
+        </TableRow>
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" >
+
+            <TextView
+                android:padding="3dip"
+                android:text="Linguagem: "
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/language"
+                android:gravity="left"
+                android:padding="3dip" />
+        </TableRow>
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" >
+
+            <TextView
+                android:padding="3dip"
+                android:text="Data da última atualização: "
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/updated_at"
+                android:gravity="left"
+                android:padding="3dip" />
+        </TableRow>
+
+    </TableLayout>
+
+</android.support.constraint.ConstraintLayout>
