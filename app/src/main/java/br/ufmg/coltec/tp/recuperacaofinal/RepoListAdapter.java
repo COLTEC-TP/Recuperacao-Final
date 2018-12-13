@@ -1,38 +1,39 @@
 package br.ufmg.coltec.tp.recuperacaofinal;
 
 import android.content.Context;
-import android.database.Cursor;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.CursorAdapter;
+import android.widget.ArrayAdapter;
 import android.widget.TextView;
 
-public class RepoListAdapter extends CursorAdapter {
+import java.util.List;
 
-    private LayoutInflater cursorInflater;
+public class RepoListAdapter extends ArrayAdapter<Repo>{
 
-    public RepoListAdapter(Context context, Cursor c) {
-        super(context, c);
-        cursorInflater = (LayoutInflater) context.getSystemService( Context.LAYOUT_INFLATER_SERVICE);
+    private final Context context;
+    private final List<Repo> mRepos;
+
+    public RepoListAdapter(Context context, List<Repo> repos) {
+        super(context, R.layout.repo_list_view, repos);
+        this.context = context;
+        this.mRepos = repos;
     }
 
     @Override
-    public View newView(Context context, Cursor cursor, ViewGroup viewGroup) {
-        return cursorInflater.inflate(R.layout.repo_list_view, viewGroup, false);
-    }
+    public View getView(int position, View convertView, ViewGroup parent) {
+        LayoutInflater inflater = (LayoutInflater) context
+                .getSystemService(Context.LAYOUT_INFLATER_SERVICE);
+        View rowView = inflater.inflate(R.layout.repo_list_view, parent, false);
 
-    @Override
-    public void bindView(View view, Context context, Cursor cursor) {
+        TextView nomeText = rowView.findViewById(R.id.nome);
+        nomeText.setText(mRepos.get(position).getName());
 
-        TextView nomeText = view.findViewById(R.id.nome);
-        nomeText.setText(cursor.getString(0));
+        TextView languageText = rowView.findViewById(R.id.language);
+        languageText.setText(mRepos.get(position).getLanguage());
 
-        TextView languageText = view.findViewById(R.id.language);
-        languageText.setText(cursor.getString(1));
-
-        TextView updated_atText = view.findViewById(R.id.updated_at);
-        updated_atText.setText(cursor.getString(2));
-
+        TextView updated_atText = rowView.findViewById(R.id.updated_at);
+        updated_atText.setText(mRepos.get(position).getUpdated_at());
+        return rowView;
     }
 }
